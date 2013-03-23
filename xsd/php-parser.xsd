@@ -1,0 +1,1312 @@
+<?xml version="1.0" encoding="utf8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="https://raw.github.com/lpouget/PHP-Parser/master/xsd/node" xmlns:attribute="https://raw.github.com/lpouget/PHP-Parser/master/xsd/attribute" xmlns:scalar="https://raw.github.com/lpouget/PHP-Parser/master/xsd/scalar" xmlns:node="https://raw.github.com/lpouget/PHP-Parser/master/xsd/node" xmlns:subNode="https://raw.github.com/lpouget/PHP-Parser/master/xsd/subNode">
+  <xs:import schemaLocation="local.xsd"/>
+  <xs:import namespace="https://raw.github.com/lpouget/PHP-Parser/master/xsd/attribute" schemaLocation="attribute.xsd"/>
+  <xs:import namespace="https://raw.github.com/lpouget/PHP-Parser/master/xsd/scalar" schemaLocation="scalar.xsd"/>
+  <xs:import namespace="https://raw.github.com/lpouget/PHP-Parser/master/xsd/subNode" schemaLocation="subNode.xsd"/>
+  <xs:element name="Stmt_ClassConst">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:consts"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Const">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:name"/>
+        <xs:element ref="subNode:value"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stmt_ClassMethod">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:type"/>
+        <xs:element ref="subNode:byRef"/>
+        <xs:element ref="subNode:params"/>
+        <xs:element ref="subNode:stmts"/>
+        <xs:element ref="subNode:name"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stmt_Interface">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:extends"/>
+        <xs:element ref="subNode:stmts"/>
+        <xs:element ref="subNode:name"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stmt_Label">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:name"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stmt_Namespace">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:name"/>
+        <xs:element ref="subNode:stmts"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_AssignShiftLeft">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:var"/>
+        <xs:element ref="subNode:expr"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stmt_Property">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:type"/>
+        <xs:element ref="subNode:props"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stmt_PropertyProperty">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:name"/>
+        <xs:element ref="subNode:default"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_ClosureUse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:var"/>
+        <xs:element ref="subNode:byRef"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_AssignBitwiseXor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:var"/>
+        <xs:element ref="subNode:expr"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stmt_Catch">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="subNode:stmts"/>
+        <xs:element ref="subNode:type"/>
+        <xs:element ref="subNode:var"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stmt_ElseIf">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="attribute:comments"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="subNode:cond"/>
+        <xs:element ref="subNode:stmts"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stmt_TraitUse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:traits"/>
+        <xs:element ref="subNode:adaptations"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Arg">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="attribute:comments"/>
+          <xs:element ref="attribute:endLine"/>
+          <xs:element ref="attribute:startLine"/>
+          <xs:element ref="subNode:value"/>
+        </xs:choice>
+        <xs:element ref="subNode:byRef"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_ArrayItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="attribute:comments"/>
+          <xs:element ref="attribute:endLine"/>
+          <xs:element ref="attribute:startLine"/>
+          <xs:element ref="subNode:value"/>
+          <xs:element ref="subNode:key"/>
+        </xs:choice>
+        <xs:element ref="subNode:byRef"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_AssignBitwiseAnd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:var"/>
+        <xs:element ref="subNode:expr"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_AssignBitwiseOr">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:var"/>
+        <xs:element ref="subNode:expr"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_AssignDiv">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:var"/>
+        <xs:element ref="subNode:expr"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_AssignMinus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:var"/>
+        <xs:element ref="subNode:expr"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_AssignMul">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:var"/>
+        <xs:element ref="subNode:expr"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_AssignPlus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:var"/>
+        <xs:element ref="subNode:expr"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_Print">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:expr"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Param">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:name"/>
+        <xs:element ref="subNode:default"/>
+        <xs:element ref="subNode:type"/>
+        <xs:element ref="subNode:byRef"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stmt_Break">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:num"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stmt_Case">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="attribute:comments"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="subNode:cond"/>
+        <xs:element ref="subNode:stmts"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stmt_Class">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:type"/>
+        <xs:element ref="subNode:extends"/>
+        <xs:element ref="subNode:implements"/>
+        <xs:element ref="subNode:stmts"/>
+        <xs:element ref="subNode:name"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stmt_Do">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:cond"/>
+        <xs:element ref="subNode:stmts"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stmt_Echo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:exprs"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stmt_For">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="attribute:comments"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="subNode:cond"/>
+        <xs:element ref="subNode:stmts"/>
+        <xs:element ref="subNode:init"/>
+        <xs:element ref="subNode:loop"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stmt_Foreach">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="attribute:comments"/>
+          <xs:element ref="attribute:endLine"/>
+          <xs:element ref="attribute:startLine"/>
+          <xs:element ref="subNode:byRef"/>
+          <xs:element ref="subNode:stmts"/>
+          <xs:element ref="subNode:keyVar"/>
+        </xs:choice>
+        <xs:element ref="subNode:expr"/>
+        <xs:element ref="subNode:valueVar"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stmt_Function">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:byRef"/>
+        <xs:element ref="subNode:params"/>
+        <xs:element ref="subNode:stmts"/>
+        <xs:element ref="subNode:name"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stmt_Global">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:vars"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stmt_If">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="attribute:comments"/>
+          <xs:element ref="attribute:endLine"/>
+          <xs:element ref="attribute:startLine"/>
+          <xs:element ref="subNode:else"/>
+          <xs:element ref="subNode:stmts"/>
+          <xs:element ref="subNode:elseifs"/>
+        </xs:choice>
+        <xs:element ref="subNode:cond"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stmt_InlineHTML">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:value"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stmt_Return">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="attribute:endLine"/>
+          <xs:element ref="attribute:startLine"/>
+          <xs:element ref="subNode:expr"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stmt_Static">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:vars"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stmt_StaticVar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:name"/>
+        <xs:element ref="subNode:default"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stmt_Switch">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="attribute:comments"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="subNode:cond"/>
+        <xs:element ref="subNode:cases"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stmt_Throw">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:expr"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stmt_TryCatch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="attribute:comments"/>
+          <xs:element ref="attribute:endLine"/>
+          <xs:element ref="attribute:startLine"/>
+          <xs:element ref="subNode:stmts"/>
+          <xs:element ref="subNode:catches"/>
+        </xs:choice>
+        <xs:element ref="subNode:finallyStmts"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stmt_Unset">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:vars"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stmt_Use">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:uses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stmt_UseUse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:name"/>
+        <xs:element ref="subNode:alias"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stmt_While">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="attribute:comments"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="subNode:cond"/>
+        <xs:element ref="subNode:stmts"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stmt_Goto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:name"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stmt_Continue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:num"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_AssignShiftRight">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:var"/>
+        <xs:element ref="subNode:expr"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_Cast_String">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:expr"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_GreaterOrEqual">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:left"/>
+        <xs:element ref="subNode:right"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Scalar_FuncConst">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_StaticPropertyFetch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:class"/>
+        <xs:element ref="subNode:name"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_Smaller">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:left"/>
+        <xs:element ref="subNode:right"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_NotIdentical">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:left"/>
+        <xs:element ref="subNode:right"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_SmallerOrEqual">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:left"/>
+        <xs:element ref="subNode:right"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_List">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:vars"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_Greater">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:left"/>
+        <xs:element ref="subNode:right"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_LogicalXor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:left"/>
+        <xs:element ref="subNode:right"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_BooleanAnd">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="subNode:left"/>
+        <xs:element ref="subNode:right"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_Isset">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:vars"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_Variable">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="attribute:endLine"/>
+          <xs:element ref="attribute:startLine"/>
+          <xs:element ref="subNode:name"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Scalar_String">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:value"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_Ternary">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="attribute:endLine"/>
+          <xs:element ref="attribute:startLine"/>
+          <xs:element ref="subNode:cond"/>
+          <xs:element ref="subNode:else"/>
+          <xs:element ref="subNode:if"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_PostInc">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:var"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_Assign">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="attribute:comments"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="subNode:expr"/>
+        <xs:element ref="subNode:var"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_MethodCall">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="attribute:comments"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="subNode:args"/>
+        <xs:element ref="subNode:name"/>
+        <xs:element ref="subNode:var"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_PropertyFetch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="attribute:comments"/>
+          <xs:element ref="attribute:endLine"/>
+          <xs:element ref="attribute:startLine"/>
+          <xs:element ref="subNode:var"/>
+        </xs:choice>
+        <xs:element ref="subNode:name"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_ArrayDimFetch">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="attribute:comments"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="subNode:var"/>
+        <xs:element ref="subNode:dim"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_ConstFetch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:name"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_ClassConstFetch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:class"/>
+        <xs:element ref="subNode:name"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_FuncCall">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="attribute:comments"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="subNode:args"/>
+        <xs:element ref="subNode:name"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_Plus">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="subNode:left"/>
+        <xs:element ref="subNode:right"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Scalar_LNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:value"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_StaticCall">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="attribute:comments"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="subNode:args"/>
+        <xs:element ref="subNode:class"/>
+        <xs:element ref="subNode:name"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_Concat">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="attribute:comments"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="subNode:left"/>
+        <xs:element ref="subNode:right"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Scalar_ClassConst">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_UnaryMinus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:expr"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_Exit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:expr"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Name_FullyQualified">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:parts"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Name">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:parts"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stmt_Else">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="attribute:comments"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="subNode:stmts"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_Eval">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:expr"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_AssignConcat">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:var"/>
+        <xs:element ref="subNode:expr"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_Include">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:expr"/>
+        <xs:element ref="subNode:type"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_ErrorSuppress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="attribute:endLine"/>
+          <xs:element ref="attribute:startLine"/>
+          <xs:element ref="subNode:expr"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_PreDec">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:var"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_Div">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="subNode:left"/>
+        <xs:element ref="subNode:right"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Scalar_Encapsed">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:parts"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_Minus">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="subNode:left"/>
+        <xs:element ref="subNode:right"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_Cast_Int">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="subNode:expr"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_New">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="attribute:comments"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="subNode:args"/>
+        <xs:element ref="subNode:class"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_AssignRef">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:var"/>
+        <xs:element ref="subNode:expr"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_PreInc">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:var"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_LogicalOr">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="attribute:endLine"/>
+          <xs:element ref="attribute:startLine"/>
+          <xs:element ref="subNode:left"/>
+          <xs:element ref="subNode:right"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_Equal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:left"/>
+        <xs:element ref="subNode:right"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_PostDec">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:var"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_Mul">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="subNode:left"/>
+        <xs:element ref="subNode:right"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Scalar_NSConst">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_BitwiseOr">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="attribute:endLine"/>
+          <xs:element ref="attribute:startLine"/>
+          <xs:element ref="subNode:left"/>
+        </xs:choice>
+        <xs:element ref="subNode:right"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_BitwiseAnd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:left"/>
+        <xs:element ref="subNode:right"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_Cast_Bool">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:expr"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_ShiftLeft">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:left"/>
+        <xs:element ref="subNode:right"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_BooleanNot">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="subNode:expr"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Scalar_MethodConst">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_Instanceof">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:expr"/>
+        <xs:element ref="subNode:class"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_Cast_Double">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:expr"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_NotEqual">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:left"/>
+        <xs:element ref="subNode:right"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_Cast_Object">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:expr"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_Mod">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:left"/>
+        <xs:element ref="subNode:right"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_Empty">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:expr"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_BitwiseXor">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="subNode:left"/>
+        <xs:element ref="subNode:right"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_BooleanOr">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="attribute:endLine"/>
+          <xs:element ref="attribute:startLine"/>
+          <xs:element ref="subNode:left"/>
+          <xs:element ref="subNode:right"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_Cast_Array">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:expr"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_Array">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="attribute:comments"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="subNode:items"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_Closure">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="attribute:endLine"/>
+          <xs:element ref="attribute:startLine"/>
+          <xs:element ref="subNode:byRef"/>
+          <xs:element ref="subNode:params"/>
+          <xs:element ref="subNode:stmts"/>
+          <xs:element ref="subNode:uses"/>
+          <xs:element ref="subNode:static"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_Identical">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="attribute:comments"/>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:left"/>
+        <xs:element ref="subNode:right"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Scalar_DirConst">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Scalar_DNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:value"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Scalar_FileConst">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Scalar_LineConst">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_Clone">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:expr"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_BitwiseNot">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:expr"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_ShiftRight">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute:startLine"/>
+        <xs:element ref="attribute:endLine"/>
+        <xs:element ref="subNode:left"/>
+        <xs:element ref="subNode:right"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Expr_LogicalAnd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="attribute:endLine"/>
+          <xs:element ref="attribute:startLine"/>
+          <xs:element ref="subNode:left"/>
+        </xs:choice>
+        <xs:element ref="subNode:right"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

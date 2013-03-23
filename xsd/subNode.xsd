@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="utf8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="https://raw.github.com/lpouget/PHP-Parser/master/xsd/subNode" xmlns:attribute="https://raw.github.com/lpouget/PHP-Parser/master/xsd/attribute" xmlns:scalar="https://raw.github.com/lpouget/PHP-Parser/master/xsd/scalar" xmlns:node="https://raw.github.com/lpouget/PHP-Parser/master/xsd/node" xmlns:subNode="https://raw.github.com/lpouget/PHP-Parser/master/xsd/subNode">
+  <xs:import schemaLocation="local.xsd"/>
+  <xs:import namespace="https://raw.github.com/lpouget/PHP-Parser/master/xsd/attribute" schemaLocation="attribute.xsd"/>
+  <xs:import namespace="https://raw.github.com/lpouget/PHP-Parser/master/xsd/node" schemaLocation="php-parser.xsd"/>
+  <xs:import namespace="https://raw.github.com/lpouget/PHP-Parser/master/xsd/scalar" schemaLocation="scalar.xsd"/>
+  <xs:element name="consts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="scalar:array"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="props">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="scalar:array"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="traits">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="scalar:array"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="adaptations">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="scalar:array"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="key">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="node:Expr_ArrayDimFetch"/>
+        <xs:element ref="node:Expr_Cast_String"/>
+        <xs:element ref="node:Expr_ClassConstFetch"/>
+        <xs:element ref="node:Expr_Concat"/>
+        <xs:element ref="node:Expr_ConstFetch"/>
+        <xs:element ref="node:Expr_FuncCall"/>
+        <xs:element ref="node:Expr_MethodCall"/>
+        <xs:element ref="node:Expr_Plus"/>
+        <xs:element ref="node:Expr_PropertyFetch"/>
+        <xs:element ref="node:Expr_StaticCall"/>
+        <xs:element ref="node:Expr_StaticPropertyFetch"/>
+        <xs:element ref="node:Expr_UnaryMinus"/>
+        <xs:element ref="node:Expr_Variable"/>
+        <xs:element ref="node:Scalar_ClassConst"/>
+        <xs:element ref="node:Scalar_LNumber"/>
+        <xs:element ref="node:Scalar_String"/>
+        <xs:element ref="scalar:null"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="implements">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="scalar:array"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="exprs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="scalar:array"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="init">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="scalar:array"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="loop">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="scalar:array"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="keyVar">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="node:Expr_Variable"/>
+        <xs:element ref="scalar:null"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="valueVar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="node:Expr_Variable"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="elseifs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="scalar:array"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cases">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="scalar:array"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="catches">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="scalar:array"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="finallyStmts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="scalar:null"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="alias">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="scalar:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="extends">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="node:Name"/>
+        <xs:element ref="node:Name_FullyQualified"/>
+        <xs:element ref="scalar:array"/>
+        <xs:element ref="scalar:null"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="stmts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="scalar:array"/>
+        <xs:element minOccurs="0" ref="scalar:null"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="name">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0">
+          <xs:element ref="node:Expr_PropertyFetch"/>
+          <xs:element ref="node:Name"/>
+          <xs:element ref="node:Expr_ArrayDimFetch"/>
+          <xs:element ref="node:Scalar_String"/>
+          <xs:element ref="node:Expr_Variable"/>
+          <xs:element ref="scalar:null"/>
+          <xs:element ref="node:Expr_Concat"/>
+          <xs:element ref="node:Name_FullyQualified"/>
+          <xs:element ref="scalar:string"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="value">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0">
+          <xs:element ref="node:Expr_PostDec"/>
+          <xs:element ref="node:Expr_BitwiseOr"/>
+          <xs:element ref="node:Expr_Smaller"/>
+          <xs:element ref="node:Expr_GreaterOrEqual"/>
+          <xs:element ref="node:Expr_AssignRef"/>
+          <xs:element ref="node:Expr_Cast_Int"/>
+          <xs:element ref="node:Expr_PreDec"/>
+          <xs:element ref="node:Expr_SmallerOrEqual"/>
+          <xs:element ref="node:Expr_BitwiseAnd"/>
+          <xs:element ref="node:Expr_PreInc"/>
+          <xs:element ref="node:Expr_Include"/>
+          <xs:element ref="node:Expr_Cast_Bool"/>
+          <xs:element ref="node:Expr_ShiftLeft"/>
+          <xs:element ref="node:Expr_BooleanNot"/>
+          <xs:element ref="node:Expr_NotIdentical"/>
+          <xs:element ref="node:Scalar_MethodConst"/>
+          <xs:element ref="node:Expr_Cast_Double"/>
+          <xs:element ref="node:Expr_Cast_Object"/>
+          <xs:element ref="node:Expr_Instanceof"/>
+          <xs:element ref="node:Expr_NotEqual"/>
+          <xs:element ref="node:Expr_Greater"/>
+          <xs:element ref="node:Expr_Mod"/>
+          <xs:element ref="node:Expr_BooleanAnd"/>
+          <xs:element ref="node:Expr_Empty"/>
+          <xs:element ref="node:Expr_BitwiseXor"/>
+          <xs:element ref="node:Expr_BooleanOr"/>
+          <xs:element ref="node:Expr_Array"/>
+          <xs:element ref="node:Expr_ArrayDimFetch"/>
+          <xs:element ref="node:Expr_Assign"/>
+          <xs:element ref="node:Expr_Cast_Array"/>
+          <xs:element ref="node:Expr_Cast_String"/>
+          <xs:element ref="node:Expr_Closure"/>
+          <xs:element ref="node:Expr_Concat"/>
+          <xs:element ref="node:Expr_Div"/>
+          <xs:element ref="node:Expr_FuncCall"/>
+          <xs:element ref="node:Expr_Identical"/>
+          <xs:element ref="node:Expr_MethodCall"/>
+          <xs:element ref="node:Expr_Minus"/>
+          <xs:element ref="node:Expr_Mul"/>
+          <xs:element ref="node:Expr_New"/>
+          <xs:element ref="node:Expr_Plus"/>
+          <xs:element ref="node:Expr_StaticCall"/>
+          <xs:element ref="node:Expr_Ternary"/>
+          <xs:element ref="node:Expr_UnaryMinus"/>
+          <xs:element ref="node:Scalar_DirConst"/>
+          <xs:element ref="node:Scalar_Encapsed"/>
+          <xs:element ref="node:Expr_PostInc"/>
+          <xs:element ref="node:Expr_StaticPropertyFetch"/>
+          <xs:element ref="node:Scalar_DNumber"/>
+          <xs:element ref="scalar:float"/>
+          <xs:element ref="node:Expr_ErrorSuppress"/>
+          <xs:element ref="node:Scalar_FileConst"/>
+          <xs:element ref="node:Expr_Eval"/>
+          <xs:element ref="node:Expr_Isset"/>
+          <xs:element ref="node:Expr_ClassConstFetch"/>
+          <xs:element ref="node:Expr_Clone"/>
+          <xs:element ref="node:Expr_ConstFetch"/>
+          <xs:element ref="node:Scalar_ClassConst"/>
+          <xs:element ref="node:Scalar_LineConst"/>
+          <xs:element ref="node:Scalar_FuncConst"/>
+          <xs:element ref="node:Expr_AssignConcat"/>
+          <xs:element ref="node:Expr_Equal"/>
+          <xs:element ref="node:Expr_PropertyFetch"/>
+          <xs:element ref="node:Expr_Variable"/>
+          <xs:element ref="node:Scalar_LNumber"/>
+          <xs:element ref="node:Scalar_String"/>
+          <xs:element ref="scalar:int"/>
+          <xs:element ref="scalar:string"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="type">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="node:Name"/>
+        <xs:element ref="node:Name_FullyQualified"/>
+        <xs:element ref="scalar:int"/>
+        <xs:element ref="scalar:null"/>
+        <xs:element ref="scalar:string"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="byRef">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="scalar:false"/>
+        <xs:element ref="scalar:true"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="params">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="scalar:array"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="var">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="node:Expr_List"/>
+          <xs:element ref="node:Expr_ArrayDimFetch"/>
+          <xs:element ref="node:Expr_FuncCall"/>
+          <xs:element ref="node:Expr_MethodCall"/>
+          <xs:element ref="node:Expr_PropertyFetch"/>
+          <xs:element ref="node:Expr_StaticCall"/>
+          <xs:element ref="node:Expr_StaticPropertyFetch"/>
+          <xs:element ref="scalar:string"/>
+          <xs:element ref="node:Expr_Variable"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="expr">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0">
+          <xs:element ref="node:Expr_BitwiseNot"/>
+          <xs:element ref="node:Expr_Plus"/>
+          <xs:element ref="node:Expr_PreInc"/>
+          <xs:element ref="scalar:null"/>
+          <xs:element ref="node:Expr_Assign"/>
+          <xs:element ref="node:Expr_Closure"/>
+          <xs:element ref="node:Expr_Cast_Object"/>
+          <xs:element ref="node:Expr_Smaller"/>
+          <xs:element ref="node:Expr_BitwiseOr"/>
+          <xs:element ref="node:Expr_GreaterOrEqual"/>
+          <xs:element ref="node:Expr_NotEqual"/>
+          <xs:element ref="node:Expr_PostInc"/>
+          <xs:element ref="node:Expr_ShiftLeft"/>
+          <xs:element ref="node:Scalar_DirConst"/>
+          <xs:element ref="node:Expr_Clone"/>
+          <xs:element ref="node:Expr_Eval"/>
+          <xs:element ref="node:Expr_UnaryMinus"/>
+          <xs:element ref="node:Expr_AssignConcat"/>
+          <xs:element ref="node:Expr_Mod"/>
+          <xs:element ref="node:Expr_SmallerOrEqual"/>
+          <xs:element ref="node:Expr_Cast_Array"/>
+          <xs:element ref="node:Expr_Cast_Double"/>
+          <xs:element ref="node:Expr_Array"/>
+          <xs:element ref="node:Expr_ArrayDimFetch"/>
+          <xs:element ref="node:Expr_BitwiseAnd"/>
+          <xs:element ref="node:Expr_BooleanAnd"/>
+          <xs:element ref="node:Expr_BooleanNot"/>
+          <xs:element ref="node:Expr_BooleanOr"/>
+          <xs:element ref="node:Expr_Cast_Bool"/>
+          <xs:element ref="node:Expr_Cast_Int"/>
+          <xs:element ref="node:Expr_Cast_String"/>
+          <xs:element ref="node:Expr_Concat"/>
+          <xs:element ref="node:Expr_Div"/>
+          <xs:element ref="node:Expr_Empty"/>
+          <xs:element ref="node:Expr_Equal"/>
+          <xs:element ref="node:Expr_ErrorSuppress"/>
+          <xs:element ref="node:Expr_FuncCall"/>
+          <xs:element ref="node:Expr_Include"/>
+          <xs:element ref="node:Expr_Instanceof"/>
+          <xs:element ref="node:Expr_Isset"/>
+          <xs:element ref="node:Expr_MethodCall"/>
+          <xs:element ref="node:Expr_Minus"/>
+          <xs:element ref="node:Expr_Mul"/>
+          <xs:element ref="node:Expr_New"/>
+          <xs:element ref="node:Expr_NotIdentical"/>
+          <xs:element ref="node:Expr_StaticCall"/>
+          <xs:element ref="node:Expr_Ternary"/>
+          <xs:element ref="node:Expr_ClassConstFetch"/>
+          <xs:element ref="node:Expr_BitwiseXor"/>
+          <xs:element ref="node:Expr_Identical"/>
+          <xs:element ref="node:Expr_ConstFetch"/>
+          <xs:element ref="node:Expr_Greater"/>
+          <xs:element ref="node:Expr_PropertyFetch"/>
+          <xs:element ref="node:Expr_ShiftRight"/>
+          <xs:element ref="node:Expr_StaticPropertyFetch"/>
+          <xs:element ref="node:Scalar_DNumber"/>
+          <xs:element ref="node:Scalar_Encapsed"/>
+          <xs:element ref="node:Scalar_LNumber"/>
+          <xs:element ref="node:Scalar_String"/>
+          <xs:element ref="node:Expr_Variable"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="default">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="node:Expr_Array"/>
+        <xs:element ref="node:Expr_ClassConstFetch"/>
+        <xs:element ref="node:Expr_ConstFetch"/>
+        <xs:element ref="node:Expr_UnaryMinus"/>
+        <xs:element ref="node:Scalar_DNumber"/>
+        <xs:element ref="node:Scalar_LNumber"/>
+        <xs:element ref="node:Scalar_String"/>
+        <xs:element ref="scalar:null"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cond">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0">
+          <xs:element ref="node:Expr_Assign"/>
+          <xs:element ref="node:Expr_ErrorSuppress"/>
+          <xs:element ref="node:Expr_StaticCall"/>
+          <xs:element ref="node:Expr_BooleanAnd"/>
+          <xs:element ref="node:Expr_Cast_Int"/>
+          <xs:element ref="node:Expr_ClassConstFetch"/>
+          <xs:element ref="node:Expr_LogicalOr"/>
+          <xs:element ref="scalar:array"/>
+          <xs:element ref="node:Expr_BooleanOr"/>
+          <xs:element ref="node:Expr_Cast_String"/>
+          <xs:element ref="node:Expr_Instanceof"/>
+          <xs:element ref="node:Scalar_LNumber"/>
+          <xs:element ref="node:Expr_Ternary"/>
+          <xs:element ref="node:Expr_ConstFetch"/>
+          <xs:element ref="node:Expr_Empty"/>
+          <xs:element ref="node:Expr_Greater"/>
+          <xs:element ref="node:Expr_PropertyFetch"/>
+          <xs:element ref="node:Expr_BooleanNot"/>
+          <xs:element ref="node:Expr_FuncCall"/>
+          <xs:element ref="node:Expr_Equal"/>
+          <xs:element ref="node:Expr_NotEqual"/>
+          <xs:element ref="node:Expr_MethodCall"/>
+          <xs:element ref="node:Expr_ArrayDimFetch"/>
+          <xs:element ref="node:Expr_Cast_Bool"/>
+          <xs:element ref="node:Expr_Isset"/>
+          <xs:element ref="node:Expr_NotIdentical"/>
+          <xs:element ref="node:Expr_PostInc"/>
+          <xs:element ref="node:Expr_PreInc"/>
+          <xs:element ref="node:Expr_UnaryMinus"/>
+          <xs:element ref="scalar:null"/>
+          <xs:element ref="node:Expr_LogicalXor"/>
+          <xs:element ref="node:Expr_Identical"/>
+          <xs:element ref="node:Expr_Array"/>
+          <xs:element ref="node:Expr_BitwiseAnd"/>
+          <xs:element ref="node:Expr_BitwiseOr"/>
+          <xs:element ref="node:Expr_Div"/>
+          <xs:element ref="node:Expr_GreaterOrEqual"/>
+          <xs:element ref="node:Expr_LogicalAnd"/>
+          <xs:element ref="node:Expr_Mod"/>
+          <xs:element ref="node:Expr_Plus"/>
+          <xs:element ref="node:Expr_Smaller"/>
+          <xs:element ref="node:Expr_SmallerOrEqual"/>
+          <xs:element ref="node:Expr_StaticPropertyFetch"/>
+          <xs:element ref="node:Expr_Variable"/>
+          <xs:element ref="node:Scalar_String"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="vars">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="scalar:array"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="if">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0">
+          <xs:element ref="node:Expr_Include"/>
+          <xs:element ref="node:Expr_Ternary"/>
+          <xs:element ref="node:Expr_Eval"/>
+          <xs:element ref="node:Expr_GreaterOrEqual"/>
+          <xs:element ref="node:Expr_Mul"/>
+          <xs:element ref="node:Expr_Plus"/>
+          <xs:element ref="node:Expr_SmallerOrEqual"/>
+          <xs:element ref="node:Expr_UnaryMinus"/>
+          <xs:element ref="node:Scalar_LNumber"/>
+          <xs:element ref="node:Expr_Concat"/>
+          <xs:element ref="node:Expr_Array"/>
+          <xs:element ref="node:Expr_Assign"/>
+          <xs:element ref="node:Expr_AssignConcat"/>
+          <xs:element ref="node:Expr_BitwiseAnd"/>
+          <xs:element ref="node:Expr_BitwiseOr"/>
+          <xs:element ref="node:Expr_BooleanOr"/>
+          <xs:element ref="node:Expr_Cast_Array"/>
+          <xs:element ref="node:Expr_Cast_Bool"/>
+          <xs:element ref="node:Expr_Cast_Double"/>
+          <xs:element ref="node:Expr_Cast_Int"/>
+          <xs:element ref="node:Expr_Cast_String"/>
+          <xs:element ref="node:Expr_ClassConstFetch"/>
+          <xs:element ref="node:Expr_Clone"/>
+          <xs:element ref="node:Expr_ConstFetch"/>
+          <xs:element ref="node:Expr_Div"/>
+          <xs:element ref="node:Expr_Equal"/>
+          <xs:element ref="node:Expr_ErrorSuppress"/>
+          <xs:element ref="node:Expr_Isset"/>
+          <xs:element ref="node:Expr_MethodCall"/>
+          <xs:element ref="node:Expr_Minus"/>
+          <xs:element ref="node:Expr_New"/>
+          <xs:element ref="node:Expr_NotEqual"/>
+          <xs:element ref="node:Expr_PropertyFetch"/>
+          <xs:element ref="node:Expr_StaticCall"/>
+          <xs:element ref="node:Expr_Variable"/>
+          <xs:element ref="node:Scalar_Encapsed"/>
+          <xs:element ref="node:Scalar_String"/>
+          <xs:element ref="scalar:null"/>
+          <xs:element ref="node:Expr_FuncCall"/>
+          <xs:element ref="node:Expr_ArrayDimFetch"/>
+          <xs:element ref="node:Expr_BooleanNot"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="num">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="node:Scalar_LNumber"/>
+        <xs:element ref="scalar:null"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="dim">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0">
+          <xs:element ref="node:Expr_UnaryMinus"/>
+          <xs:element ref="node:Scalar_ClassConst"/>
+        </xs:choice>
+        <xs:element minOccurs="0" ref="node:Expr_Concat"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="node:Expr_ArrayDimFetch"/>
+        <xs:element minOccurs="0" ref="node:Expr_Plus"/>
+        <xs:choice minOccurs="0">
+          <xs:element ref="node:Expr_BitwiseXor"/>
+          <xs:element ref="node:Expr_Mul"/>
+        </xs:choice>
+        <xs:element minOccurs="0" ref="node:Expr_ClassConstFetch"/>
+        <xs:element minOccurs="0" ref="node:Scalar_Encapsed"/>
+        <xs:element minOccurs="0" ref="node:Expr_PostInc"/>
+        <xs:element minOccurs="0" ref="node:Expr_Cast_Int"/>
+        <xs:element minOccurs="0" ref="node:Expr_PropertyFetch"/>
+        <xs:choice minOccurs="0">
+          <xs:element ref="node:Expr_Cast_String"/>
+          <xs:element ref="node:Expr_FuncCall"/>
+          <xs:element ref="node:Expr_MethodCall"/>
+          <xs:element ref="node:Expr_Minus"/>
+          <xs:element ref="node:Expr_Mod"/>
+        </xs:choice>
+        <xs:choice minOccurs="0">
+          <xs:element ref="node:Expr_Div"/>
+          <xs:element ref="node:Expr_PreInc"/>
+        </xs:choice>
+        <xs:choice minOccurs="0">
+          <xs:element ref="node:Expr_StaticCall"/>
+          <xs:element ref="node:Expr_Ternary"/>
+        </xs:choice>
+        <xs:choice minOccurs="0">
+          <xs:element ref="node:Expr_Assign"/>
+          <xs:element ref="node:Expr_ConstFetch"/>
+          <xs:element ref="node:Expr_PreDec"/>
+          <xs:element ref="node:Expr_ShiftLeft"/>
+          <xs:element ref="node:Expr_Variable"/>
+          <xs:element ref="node:Scalar_LNumber"/>
+          <xs:element ref="node:Scalar_String"/>
+          <xs:element ref="scalar:null"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="else">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0">
+          <xs:element ref="node:Expr_AssignConcat"/>
+          <xs:element ref="node:Expr_Cast_Bool"/>
+          <xs:element ref="node:Expr_Cast_Double"/>
+          <xs:element ref="node:Expr_Include"/>
+        </xs:choice>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="node:Stmt_Else"/>
+        <xs:choice minOccurs="0">
+          <xs:element ref="node:Expr_Assign"/>
+          <xs:element ref="node:Expr_BooleanAnd"/>
+          <xs:element ref="node:Expr_BooleanNot"/>
+          <xs:element ref="node:Expr_BooleanOr"/>
+          <xs:element ref="node:Expr_Cast_Array"/>
+          <xs:element ref="node:Expr_Cast_Int"/>
+          <xs:element ref="node:Expr_Equal"/>
+          <xs:element ref="node:Expr_Greater"/>
+          <xs:element ref="node:Expr_Minus"/>
+          <xs:element ref="node:Expr_Mul"/>
+          <xs:element ref="node:Expr_New"/>
+          <xs:element ref="node:Expr_PropertyFetch"/>
+          <xs:element ref="node:Expr_Smaller"/>
+          <xs:element ref="node:Expr_StaticPropertyFetch"/>
+          <xs:element ref="node:Expr_UnaryMinus"/>
+          <xs:element ref="node:Scalar_Encapsed"/>
+          <xs:element ref="scalar:null"/>
+        </xs:choice>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="node:Expr_Concat"/>
+          <xs:element ref="node:Expr_Ternary"/>
+        </xs:choice>
+        <xs:choice minOccurs="0">
+          <xs:element ref="node:Expr_Array"/>
+          <xs:element ref="node:Expr_ArrayDimFetch"/>
+          <xs:element ref="node:Expr_Cast_String"/>
+          <xs:element ref="node:Expr_ClassConstFetch"/>
+          <xs:element ref="node:Expr_ConstFetch"/>
+          <xs:element ref="node:Expr_Div"/>
+          <xs:element ref="node:Expr_ErrorSuppress"/>
+          <xs:element ref="node:Expr_FuncCall"/>
+          <xs:element ref="node:Expr_MethodCall"/>
+          <xs:element ref="node:Expr_Plus"/>
+          <xs:element ref="node:Expr_PostInc"/>
+          <xs:element ref="node:Expr_StaticCall"/>
+          <xs:element ref="node:Expr_Variable"/>
+          <xs:element ref="node:Scalar_LNumber"/>
+          <xs:element ref="node:Scalar_String"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="uses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="scalar:array"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="left">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice>
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="node:Expr_BitwiseXor"/>
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="node:Expr_BitwiseOr"/>
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="node:Expr_LogicalOr"/>
+        </xs:choice>
+        <xs:element minOccurs="0" ref="node:Expr_Include"/>
+        <xs:element minOccurs="0" ref="node:Expr_PreInc"/>
+        <xs:element minOccurs="0" ref="node:Expr_ShiftRight"/>
+        <xs:choice minOccurs="0">
+          <xs:element ref="node:Expr_Exit"/>
+          <xs:element ref="node:Expr_New"/>
+        </xs:choice>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="node:Expr_BooleanAnd"/>
+          <xs:element ref="node:Expr_BooleanOr"/>
+        </xs:choice>
+        <xs:choice minOccurs="0">
+          <xs:element ref="node:Expr_Isset"/>
+          <xs:element ref="node:Expr_NotIdentical"/>
+          <xs:element ref="node:Expr_Smaller"/>
+          <xs:element ref="node:Expr_SmallerOrEqual"/>
+        </xs:choice>
+        <xs:choice minOccurs="0">
+          <xs:element ref="node:Expr_Array"/>
+          <xs:element ref="node:Expr_Cast_Array"/>
+          <xs:element ref="node:Expr_Instanceof"/>
+        </xs:choice>
+        <xs:element minOccurs="0" ref="node:Expr_BitwiseNot"/>
+        <xs:element minOccurs="0" ref="node:Expr_Identical"/>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="node:Expr_ArrayDimFetch"/>
+          <xs:element ref="node:Expr_Assign"/>
+          <xs:element ref="node:Expr_BitwiseAnd"/>
+          <xs:element ref="node:Expr_BooleanNot"/>
+          <xs:element ref="node:Expr_Cast_Double"/>
+          <xs:element ref="node:Expr_Cast_Int"/>
+          <xs:element ref="node:Expr_Concat"/>
+          <xs:element ref="node:Expr_Div"/>
+          <xs:element ref="node:Expr_Empty"/>
+          <xs:element ref="node:Expr_Equal"/>
+          <xs:element ref="node:Expr_FuncCall"/>
+          <xs:element ref="node:Expr_Greater"/>
+          <xs:element ref="node:Expr_GreaterOrEqual"/>
+          <xs:element ref="node:Expr_LogicalAnd"/>
+          <xs:element ref="node:Expr_MethodCall"/>
+          <xs:element ref="node:Expr_Minus"/>
+          <xs:element ref="node:Expr_Mod"/>
+          <xs:element ref="node:Expr_Mul"/>
+          <xs:element ref="node:Expr_NotEqual"/>
+          <xs:element ref="node:Expr_Plus"/>
+          <xs:element ref="node:Expr_PropertyFetch"/>
+          <xs:element ref="node:Expr_ShiftLeft"/>
+          <xs:element ref="node:Expr_StaticCall"/>
+          <xs:element ref="node:Expr_Ternary"/>
+          <xs:element ref="node:Expr_Variable"/>
+        </xs:choice>
+        <xs:choice minOccurs="0">
+          <xs:element ref="node:Expr_ClassConstFetch"/>
+          <xs:element ref="node:Expr_PostInc"/>
+          <xs:element ref="node:Expr_StaticPropertyFetch"/>
+          <xs:element ref="node:Expr_UnaryMinus"/>
+          <xs:element ref="node:Scalar_DNumber"/>
+          <xs:element ref="node:Scalar_MethodConst"/>
+        </xs:choice>
+        <xs:element minOccurs="0" ref="node:Expr_ErrorSuppress"/>
+        <xs:choice minOccurs="0">
+          <xs:element ref="node:Expr_Cast_Bool"/>
+          <xs:element ref="node:Expr_Cast_String"/>
+          <xs:element ref="node:Expr_ConstFetch"/>
+          <xs:element ref="node:Scalar_ClassConst"/>
+          <xs:element ref="node:Scalar_DirConst"/>
+          <xs:element ref="node:Scalar_Encapsed"/>
+          <xs:element ref="node:Scalar_LNumber"/>
+          <xs:element ref="node:Scalar_String"/>
+          <xs:element ref="node:Scalar_NSConst"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="right">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="node:Scalar_FileConst"/>
+        <xs:choice minOccurs="0">
+          <xs:element ref="node:Expr_GreaterOrEqual"/>
+          <xs:element ref="node:Expr_LogicalOr"/>
+        </xs:choice>
+        <xs:element minOccurs="0" ref="node:Expr_BitwiseOr"/>
+        <xs:choice minOccurs="0">
+          <xs:element ref="node:Expr_New"/>
+          <xs:element ref="node:Expr_PreInc"/>
+          <xs:element ref="node:Scalar_LineConst"/>
+        </xs:choice>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="node:Expr_BooleanAnd"/>
+          <xs:element ref="node:Expr_BooleanOr"/>
+        </xs:choice>
+        <xs:element minOccurs="0" ref="node:Expr_Empty"/>
+        <xs:choice minOccurs="0">
+          <xs:element ref="node:Expr_Greater"/>
+          <xs:element ref="node:Expr_Smaller"/>
+        </xs:choice>
+        <xs:element minOccurs="0" ref="node:Expr_LogicalAnd"/>
+        <xs:element minOccurs="0" ref="node:Expr_BitwiseXor"/>
+        <xs:choice minOccurs="0">
+          <xs:element ref="node:Scalar_DirConst"/>
+          <xs:element ref="node:Scalar_MethodConst"/>
+        </xs:choice>
+        <xs:element minOccurs="0" ref="node:Expr_ShiftLeft"/>
+        <xs:element minOccurs="0" ref="node:Expr_Cast_Bool"/>
+        <xs:element minOccurs="0" ref="node:Expr_NotEqual"/>
+        <xs:choice minOccurs="0">
+          <xs:element ref="node:Expr_Cast_Double"/>
+          <xs:element ref="node:Expr_Exit"/>
+        </xs:choice>
+        <xs:choice minOccurs="0">
+          <xs:element ref="node:Expr_PostInc"/>
+          <xs:element ref="node:Scalar_ClassConst"/>
+        </xs:choice>
+        <xs:element minOccurs="0" ref="node:Expr_Equal"/>
+        <xs:element minOccurs="0" ref="node:Expr_Concat"/>
+        <xs:element minOccurs="0" ref="node:Scalar_Encapsed"/>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="node:Expr_ArrayDimFetch"/>
+          <xs:element ref="node:Expr_BooleanNot"/>
+          <xs:element ref="node:Expr_Div"/>
+          <xs:element ref="node:Expr_ErrorSuppress"/>
+          <xs:element ref="node:Expr_FuncCall"/>
+          <xs:element ref="node:Expr_Identical"/>
+          <xs:element ref="node:Expr_Minus"/>
+          <xs:element ref="node:Expr_Mul"/>
+          <xs:element ref="node:Expr_NotIdentical"/>
+          <xs:element ref="node:Expr_Plus"/>
+          <xs:element ref="node:Expr_SmallerOrEqual"/>
+          <xs:element ref="node:Expr_StaticCall"/>
+          <xs:element ref="node:Expr_Ternary"/>
+        </xs:choice>
+        <xs:choice minOccurs="0">
+          <xs:element ref="node:Expr_Array"/>
+          <xs:element ref="node:Expr_BitwiseNot"/>
+          <xs:element ref="node:Expr_StaticPropertyFetch"/>
+        </xs:choice>
+        <xs:element minOccurs="0" ref="node:Expr_Isset"/>
+        <xs:element minOccurs="0" ref="node:Expr_Instanceof"/>
+        <xs:choice>
+          <xs:element ref="node:Expr_Assign"/>
+          <xs:element ref="node:Expr_Cast_Int"/>
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="node:Expr_MethodCall"/>
+        </xs:choice>
+        <xs:choice minOccurs="0">
+          <xs:element ref="node:Expr_Cast_String"/>
+          <xs:element ref="node:Scalar_DNumber"/>
+          <xs:element ref="node:Scalar_String"/>
+        </xs:choice>
+        <xs:element minOccurs="0" ref="node:Expr_Mod"/>
+        <xs:element minOccurs="0" ref="node:Expr_UnaryMinus"/>
+        <xs:element minOccurs="0" ref="node:Expr_BitwiseAnd"/>
+        <xs:choice>
+          <xs:element ref="node:Expr_ClassConstFetch"/>
+          <xs:element ref="node:Expr_ConstFetch"/>
+          <xs:element ref="node:Expr_PropertyFetch"/>
+          <xs:element ref="node:Scalar_LNumber"/>
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="node:Expr_Variable"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="items">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="scalar:array"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="static">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="scalar:false"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="class">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="node:Expr_Variable"/>
+        <xs:element minOccurs="0" ref="node:Expr_StaticPropertyFetch"/>
+        <xs:element minOccurs="0" ref="node:Name_FullyQualified"/>
+        <xs:element minOccurs="0" ref="node:Expr_ArrayDimFetch"/>
+        <xs:choice minOccurs="0">
+          <xs:element ref="node:Expr_PropertyFetch"/>
+          <xs:element ref="node:Name"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="args">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="scalar:array"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="parts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="scalar:array"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

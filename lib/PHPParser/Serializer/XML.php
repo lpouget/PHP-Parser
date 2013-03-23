@@ -18,10 +18,10 @@ class PHPParser_Serializer_XML implements PHPParser_Serializer
         $this->writer->startDocument('1.0', 'UTF-8');
 
         $this->writer->startElement('AST');
-        $this->writer->writeAttribute('xmlns:node',      'http://nikic.github.com/PHPParser/XML/node');
-        $this->writer->writeAttribute('xmlns:subNode',   'http://nikic.github.com/PHPParser/XML/subNode');
-        $this->writer->writeAttribute('xmlns:attribute', 'http://nikic.github.com/PHPParser/XML/attribute');
-        $this->writer->writeAttribute('xmlns:scalar',    'http://nikic.github.com/PHPParser/XML/scalar');
+        $this->writer->writeAttribute('xmlns:node',      'https://raw.github.com/lpouget/PHP-Parser/master/xsd/node');
+        $this->writer->writeAttribute('xmlns:subNode',   'https://raw.github.com/lpouget/PHP-Parser/master/xsd/subNode');
+        $this->writer->writeAttribute('xmlns:attribute', 'https://raw.github.com/lpouget/PHP-Parser/master/xsd/attribute');
+        $this->writer->writeAttribute('xmlns:scalar',    'https://raw.github.com/lpouget/PHP-Parser/master/xsd/scalar');
 
         $this->_serialize($nodes);
 

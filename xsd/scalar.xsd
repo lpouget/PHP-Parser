@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="https://raw.github.com/lpouget/PHP-Parser/master/xsd/scalar" xmlns:attribute="https://raw.github.com/lpouget/PHP-Parser/master/xsd/attribute" xmlns:scalar="https://raw.github.com/lpouget/PHP-Parser/master/xsd/scalar" xmlns:node="https://raw.github.com/lpouget/PHP-Parser/master/xsd/node" xmlns:subNode="https://raw.github.com/lpouget/PHP-Parser/master/xsd/subNode">
+  <xs:import schemaLocation="local.xsd"/>
+  <xs:import namespace="https://raw.github.com/lpouget/PHP-Parser/master/xsd/attribute" schemaLocation="attribute.xsd"/>
+  <xs:import namespace="https://raw.github.com/lpouget/PHP-Parser/master/xsd/node" schemaLocation="php-parser.xsd"/>
+  <xs:import namespace="https://raw.github.com/lpouget/PHP-Parser/master/xsd/subNode" schemaLocation="subNode.xsd"/>
+  <xs:element name="array">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="node:Stmt_ClassConst"/>
+          <xs:element ref="node:Expr_Cast_String"/>
+          <xs:element ref="node:Expr_GreaterOrEqual"/>
+          <xs:element ref="node:Expr_NotIdentical"/>
+          <xs:element ref="node:Expr_Smaller"/>
+          <xs:element ref="node:Expr_SmallerOrEqual"/>
+          <xs:element ref="node:Expr_StaticPropertyFetch"/>
+          <xs:element ref="node:Const"/>
+          <xs:element ref="node:Stmt_ClassMethod"/>
+          <xs:element ref="node:Stmt_Interface"/>
+          <xs:element ref="node:Stmt_Label"/>
+          <xs:element ref="node:Stmt_Namespace"/>
+          <xs:element ref="node:Expr_AssignShiftLeft"/>
+          <xs:element ref="node:Stmt_Property"/>
+          <xs:element ref="node:Stmt_PropertyProperty"/>
+          <xs:element ref="node:Expr_Greater"/>
+          <xs:element ref="node:Expr_ClosureUse"/>
+          <xs:element ref="node:Expr_BooleanAnd"/>
+          <xs:element ref="node:Expr_Isset"/>
+          <xs:element ref="node:Expr_AssignBitwiseXor"/>
+          <xs:element ref="node:Stmt_Catch"/>
+          <xs:element ref="node:Stmt_ElseIf"/>
+          <xs:element ref="node:Stmt_TraitUse"/>
+          <xs:element ref="node:Expr_ArrayDimFetch"/>
+          <xs:element ref="node:Expr_Assign"/>
+          <xs:element ref="node:Expr_AssignConcat"/>
+          <xs:element ref="node:Expr_AssignRef"/>
+          <xs:element ref="node:Expr_Cast_Int"/>
+          <xs:element ref="node:Expr_ClassConstFetch"/>
+          <xs:element ref="node:Expr_Concat"/>
+          <xs:element ref="node:Expr_ConstFetch"/>
+          <xs:element ref="node:Expr_Div"/>
+          <xs:element ref="node:Expr_Equal"/>
+          <xs:element ref="node:Expr_ErrorSuppress"/>
+          <xs:element ref="node:Expr_Eval"/>
+          <xs:element ref="node:Expr_Exit"/>
+          <xs:element ref="node:Expr_FuncCall"/>
+          <xs:element ref="node:Expr_Include"/>
+          <xs:element ref="node:Expr_LogicalOr"/>
+          <xs:element ref="node:Expr_MethodCall"/>
+          <xs:element ref="node:Expr_Minus"/>
+          <xs:element ref="node:Expr_New"/>
+          <xs:element ref="node:Expr_Plus"/>
+          <xs:element ref="node:Expr_PostDec"/>
+          <xs:element ref="node:Expr_PostInc"/>
+          <xs:element ref="node:Expr_PreDec"/>
+          <xs:element ref="node:Expr_PreInc"/>
+          <xs:element ref="node:Expr_PropertyFetch"/>
+          <xs:element ref="node:Expr_StaticCall"/>
+          <xs:element ref="node:Expr_Ternary"/>
+          <xs:element ref="node:Expr_Variable"/>
+          <xs:element ref="node:Name"/>
+          <xs:element ref="node:Name_FullyQualified"/>
+          <xs:element ref="node:Scalar_Encapsed"/>
+          <xs:element ref="node:Scalar_String"/>
+          <xs:element ref="scalar:null"/>
+          <xs:element ref="scalar:string"/>
+          <xs:element ref="node:Arg"/>
+          <xs:element ref="node:Expr_ArrayItem"/>
+          <xs:element ref="node:Expr_AssignBitwiseAnd"/>
+          <xs:element ref="node:Expr_AssignBitwiseOr"/>
+          <xs:element ref="node:Expr_AssignDiv"/>
+          <xs:element ref="node:Expr_AssignMinus"/>
+          <xs:element ref="node:Expr_AssignMul"/>
+          <xs:element ref="node:Expr_AssignPlus"/>
+          <xs:element ref="node:Expr_Print"/>
+          <xs:element ref="node:Param"/>
+          <xs:element ref="node:Stmt_Break"/>
+          <xs:element ref="node:Stmt_Case"/>
+          <xs:element ref="node:Stmt_Class"/>
+          <xs:element ref="node:Stmt_Do"/>
+          <xs:element ref="node:Stmt_Echo"/>
+          <xs:element ref="node:Stmt_For"/>
+          <xs:element ref="node:Stmt_Foreach"/>
+          <xs:element ref="node:Stmt_Function"/>
+          <xs:element ref="node:Stmt_Global"/>
+          <xs:element ref="node:Stmt_If"/>
+          <xs:element ref="node:Stmt_InlineHTML"/>
+          <xs:element ref="node:Stmt_Return"/>
+          <xs:element ref="node:Stmt_Static"/>
+          <xs:element ref="node:Stmt_StaticVar"/>
+          <xs:element ref="node:Stmt_Switch"/>
+          <xs:element ref="node:Stmt_Throw"/>
+          <xs:element ref="node:Stmt_TryCatch"/>
+          <xs:element ref="node:Stmt_Unset"/>
+          <xs:element ref="node:Stmt_Use"/>
+          <xs:element ref="node:Stmt_UseUse"/>
+          <xs:element ref="node:Stmt_While"/>
+          <xs:element ref="node:Stmt_Goto"/>
+          <xs:element ref="node:Stmt_Continue"/>
+          <xs:element ref="node:Expr_Mul"/>
+          <xs:element ref="node:Expr_UnaryMinus"/>
+          <xs:element ref="node:Scalar_LNumber"/>
+          <xs:element ref="node:Expr_AssignShiftRight"/>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="comment" form="unqualified">
+            <xs:complexType mixed="true">
+              <xs:attribute name="isDocComment" use="required" type="xs:boolean"/>
+              <xs:attribute name="line" use="required" type="xs:integer"/>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="float" type="xs:double"/>
+  <xs:element name="true">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="string" type="xs:string"/>
+  <xs:element name="null">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="int" type="xs:integer"/>
+  <xs:element name="false">
+    <xs:complexType/>
+  </xs:element>
+</xs:schema>

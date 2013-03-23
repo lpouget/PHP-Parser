@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="https://raw.github.com/lpouget/PHP-Parser/master/xsd/attribute" xmlns:attribute="https://raw.github.com/lpouget/PHP-Parser/master/xsd/attribute" xmlns:scalar="https://raw.github.com/lpouget/PHP-Parser/master/xsd/scalar" xmlns:node="https://raw.github.com/lpouget/PHP-Parser/master/xsd/node" xmlns:subNode="https://raw.github.com/lpouget/PHP-Parser/master/xsd/subNode">
+  <xs:import schemaLocation="local.xsd"/>
+  <xs:import namespace="https://raw.github.com/lpouget/PHP-Parser/master/xsd/node" schemaLocation="php-parser.xsd"/>
+  <xs:import namespace="https://raw.github.com/lpouget/PHP-Parser/master/xsd/scalar" schemaLocation="scalar.xsd"/>
+  <xs:import namespace="https://raw.github.com/lpouget/PHP-Parser/master/xsd/subNode" schemaLocation="subNode.xsd"/>
+  <xs:element name="comments">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="scalar:array"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="startLine">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="scalar:int"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="endLine">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="scalar:int"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
